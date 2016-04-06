@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.huongtt.flickrdemo.download.DownloadRecentsTask;
+
+import com.huongtt.flickrdemo.download.DownloadManager;
+import com.huongtt.flickrdemo.download.DownloadResponseHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().hide();
 
-
-        DownloadRecentsTask downloadRecentsTask = new DownloadRecentsTask(this);
-        downloadRecentsTask.execute();
-
+        DownloadManager downloadManager = DownloadManager.getInstance();
+        downloadManager.init(getExternalFilesDir(null).getPath());
+        downloadManager.downloadRecentPhotosJSON(new DownloadResponseHandler());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

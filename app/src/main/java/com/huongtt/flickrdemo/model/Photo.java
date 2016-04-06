@@ -9,14 +9,16 @@ public class Photo {
     private String id;
     private String owner;
     private String secret;
-    private int server;
-    private int farm;
+    private String server;
+    private String farm;
     private String title;
     private boolean ispublic;
     private boolean isfriend;
     private boolean isfamily;
     private boolean is_primary;
     private boolean has_comment;
+    private String originalformat;
+    private String url;
 
     public String getId() {
         return id;
@@ -42,19 +44,19 @@ public class Photo {
         this.secret = secret;
     }
 
-    public int getServer() {
+    public String getServer() {
         return server;
     }
 
-    public void setServer(int server) {
+    public void setServer(String server) {
         this.server = server;
     }
 
-    public int getFarm() {
+    public String getFarm() {
         return farm;
     }
 
-    public void setFarm(int farm) {
+    public void setFarm(String farm) {
         this.farm = farm;
     }
 
@@ -104,5 +106,21 @@ public class Photo {
 
     public void setHas_comment(boolean has_comment) {
         this.has_comment = has_comment;
+    }
+
+    public String getOriginalformat() {
+        return originalformat;
+    }
+
+    public void setOriginalformat(String originalformat) {
+        this.originalformat = originalformat;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
